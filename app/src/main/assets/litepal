@@ -1,0 +1,9 @@
+<litepal>
+    <dbname value="Myweather"/>
+    <version value = "1"/>
+    <list>
+        <mapping class="com.vaiyee.myweather.db.City"/>
+        <mapping class="com.vaiyee.myweather.db.County"/>
+        <mapping class="com.vaiyee.myweather.db.Sheng"/>
+    </list>
+</litepal>
