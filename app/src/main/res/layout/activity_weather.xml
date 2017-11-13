@@ -6,11 +6,17 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     tools:context="com.vaiyee.myweather.WeatherActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/bing_pic_img"
+        android:scaleType="centerCrop"/>
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/weather_layout"
     android:scrollbars="none"
+    android:fitsSystemWindows="true"
     android:overScrollMode="never">
 <LinearLayout
     android:layout_width="match_parent"

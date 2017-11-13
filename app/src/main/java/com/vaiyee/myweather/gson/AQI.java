@@ -5,7 +5,7 @@ package com.vaiyee.myweather.gson;
  */
 
 public class AQI {
-    AQIcity city;
+   public AQIcity city;
     public class AQIcity{
         public String aqi;
         public String pm25;
