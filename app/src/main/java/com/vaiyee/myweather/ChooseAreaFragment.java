@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.vaiyee.myweather.db.City;
 import com.vaiyee.myweather.db.County;
 import com.vaiyee.myweather.db.Sheng;
+import com.vaiyee.myweather.gson.Weather;
 import com.vaiyee.myweather.util.HttpUtil;
 import com.vaiyee.myweather.util.Utility;
 
@@ -120,10 +121,19 @@ public class ChooseAreaFragment extends Fragment {
                 else if (currentLevel == LEVEL_COUNTY)
                 {
                     String weatherId = countyList.get(i).getWeatherId();
-                    Intent intent =new Intent(getActivity(),WeatherActivity.class);
-                    intent.putExtra("weather_id",weatherId);
-                    startActivity(intent );
-                    getActivity().finish();
+                    if (getActivity() instanceof MainActivity) {
+
+                        Intent intent = new Intent(getActivity(), WeatherActivity.class);
+                        intent.putExtra("weather_id", weatherId);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }else if (getActivity() instanceof WeatherActivity)
+                    {
+                        WeatherActivity weatherActivity = (WeatherActivity)getActivity();
+                        weatherActivity.drawerlayout.closeDrawers();
+                        weatherActivity.swipeRefreshLayout.setRefreshing(true);
+                        weatherActivity.requesWeather(weatherId);
+                    }
                 }
             }
         });
@@ -242,7 +252,7 @@ public class ChooseAreaFragment extends Fragment {
     //查询选中的市的所有县，先从数据库查询，如果数据库中没有再到服务器上查询
     private void queryCounty() {
         titleText.setText(selectedCity.getCityName());
-        String []a =new String[]{"钦州","灵山","浦北"};
+        String []a =new String[]{"钦州","浦北","灵山"};
         backButton.setVisibility(View.VISIBLE);
         countyList = DataSupport.where("cityid = ?",String.valueOf(selectedCity.getId())).find(County.class);
         if (countyList.size()>0) {

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_height="wrap_content"
     android:layout_margin="15dp"
-    android:background="#8000">
+    android:background="#00000000">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -13,10 +17,33 @@
     android:text="未来几天气预报"
     android:textColor="#fff"
     android:textSize="20sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="最高温"
+        android:textColor="#FF0000"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="80dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="最低温"
+        android:textColor="#FF83FA"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="20dp"
+       />
+    </LinearLayout>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#33FFB5C5"
+        app:cardCornerRadius="10dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:id="@+id/forecast_layout">
     </LinearLayout>
+</android.support.v7.widget.CardView>
 </LinearLayout>
